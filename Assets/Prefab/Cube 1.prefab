@@ -12,10 +12,7 @@ GameObject:
   - component: {fileID: 4672735634603707323}
   - component: {fileID: 873536603375834880}
   - component: {fileID: 1835764478436487766}
-  - component: {fileID: 3091753985301334821}
-  - component: {fileID: 3161876489124999800}
-  - component: {fileID: 4496209416226076987}
-  - component: {fileID: 3825301515675300363}
+  - component: {fileID: -5346059553072683317}
   m_Layer: 0
   m_Name: Cube 1
   m_TagString: Untagged
@@ -109,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3091753985301334821
+--- !u!114 &-5346059553072683317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,49 +115,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7144695482987958194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5847993fe5c3c7341a11fe8b0671cac5, type: 3}
+  m_Script: {fileID: 11500000, guid: 67f87233fa05f514c85f413c442aadd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectPool: {fileID: 3161876489124999800}
-  _spawnInterval: 1
---- !u!114 &3161876489124999800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7144695482987958194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16e1629c2da32ee4c818d276b45f3274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 3544788169213289775, guid: eba845c0d545a1447a20f3cec9d50c95, type: 3}
---- !u!114 &4496209416226076987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7144695482987958194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4fca45c03a4ba64aada5adbe2e48eda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 8574345346203554284, guid: 0c71b966bf990714490760eb397c369c, type: 3}
---- !u!114 &3825301515675300363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7144695482987958194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7da3006fdd67d66428ae7ccd4e081c5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _poolBomb: {fileID: 4496209416226076987}
-  _cubePool: {fileID: 3161876489124999800}
-  _spawnInterval: 1

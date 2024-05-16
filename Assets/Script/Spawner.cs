@@ -5,11 +5,13 @@ public abstract class Spawner<SpawnedObject> : MonoBehaviour where SpawnedObject
     private readonly Vector3 SpawnRange = new Vector3(5f, 10f, 5f);
 
     [SerializeField] protected ObjectPool<SpawnedObject> ObjectPool;
-    [SerializeField] private float _spawnInterval = 1f;
+    [SerializeField] protected float _spawnInterval = 1f;
+
+    [SerializeField] private Platform[] spawnPlatforms; 
 
     private float _spawnTimer = 0f;
 
-    private void Update()
+    protected virtual void Update()
     {
         _spawnTimer += Time.deltaTime;
 
@@ -23,16 +25,14 @@ public abstract class Spawner<SpawnedObject> : MonoBehaviour where SpawnedObject
     protected virtual void SpawnObject()
     {
         SpawnedObject obj = ObjectPool.GetObjectFromPool();
-
-        if (obj != null)
-        {
-            obj.transform.position = GetPosotion();
-        }
+        obj.transform.position = GetPosition(); 
     }
 
-    protected virtual Vector3 GetPosotion()
+    protected virtual Vector3 GetPosition()
     {
-        Vector3 spawnPosition = transform.position + new Vector3(
+        Platform platform = spawnPlatforms[Random.Range(0, spawnPlatforms.Length)];
+
+        Vector3 spawnPosition = platform.transform.position + new Vector3(
                 Random.Range(-SpawnRange.x, SpawnRange.x),
                 SpawnRange.y,
                 Random.Range(-SpawnRange.z, SpawnRange.z)
