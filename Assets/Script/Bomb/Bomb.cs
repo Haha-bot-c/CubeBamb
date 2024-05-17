@@ -13,25 +13,38 @@ public class Bomb : MonoBehaviour
     private Material _material;
     public event Action<Bomb> Exploded;
 
+    private void Awake()
+    {
+        _renderer = GetComponent<Renderer>();
+        _material = _renderer.material;
+    }
+
     public IEnumerator FadeOut()
     {
         float elapsedTime = 0f;
 
-        while (elapsedTime < _fadeDuration)
+        while (true)
         {
+            elapsedTime += Time.deltaTime;
             float alpha = Mathf.Lerp(1f, 0f, elapsedTime / _fadeDuration);
+
             Color color = _material.color;
             color.a = alpha;
             _material.color = color;
-            elapsedTime += Time.deltaTime;
+
+            if (color.a <= 0)
+            {
+                Explode();
+                Exploded?.Invoke(this);
+                yield break;
+            }
 
             yield return null;
         }
-
-        yield return new WaitForSeconds(_fadeDuration);
-        Explode();
-        Exploded?.Invoke(this);
     }
+
+
+
 
     private void Explode()
     {
@@ -50,8 +63,6 @@ public class Bomb : MonoBehaviour
 
     public void ReloadBomb()
     {
-        _renderer = GetComponent<Renderer>();
-        _material = _renderer.material;
         Color color = _material.color;
         color.a = 1;
         _material.color = color;

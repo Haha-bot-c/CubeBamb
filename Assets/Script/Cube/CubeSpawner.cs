@@ -7,13 +7,13 @@ public class CubeSpawner : Spawner<Cube>
         if (cube != null)
         {
             cube.transform.position = GetPosition();
-            cube.OnReturnedToPool += CubeOnReturnedToPool;
+            cube.ReturnedToPool += CubeOnReturnedToPool;
         }
     }
 
     private void CubeOnReturnedToPool(Cube obj)
     {
-        obj.OnReturnedToPool -= CubeOnReturnedToPool;
+        obj.ReturnedToPool -= CubeOnReturnedToPool;
         ObjectPool.ReturnObjectToPool(obj);
     }
 }

@@ -9,6 +9,7 @@ public class TextUI<PooledObject> : MonoBehaviour where PooledObject : MonoBehav
     [SerializeField] private TMP_Text _totalObjectsText;
     [SerializeField] private TMP_Text _activeObjectsText;
     [SerializeField] private ObjectPool<PooledObject> _objectPool;
+
     private List<PooledObject> _spawnedObjects = new List<PooledObject>();
 
     private void OnEnable()

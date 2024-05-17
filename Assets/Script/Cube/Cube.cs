@@ -5,13 +5,18 @@ using System;
 [RequireComponent(typeof(Rigidbody), typeof(CubeColorChanger))]
 public class Cube : MonoBehaviour
 {
-    [SerializeField] private CubeColorChanger _colorChanger;
-
     private const int MinDelay = 2;
     private const int MaxDelay = 5;
-    private bool _hasNotCollided = true; 
 
-    public event Action<Cube> OnReturnedToPool; 
+    private CubeColorChanger _colorChanger;
+    private bool _hasNotCollided = true;
+
+    public event Action<Cube> ReturnedToPool;
+
+    private void Awake()
+    {
+        _colorChanger = GetComponent<CubeColorChanger>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -27,7 +32,7 @@ public class Cube : MonoBehaviour
     private IEnumerator ReturnCubeWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        OnReturnedToPool?.Invoke(this);
+        ReturnedToPool?.Invoke(this);
         _hasNotCollided = true;
         _colorChanger.ReturnColor();
     }
